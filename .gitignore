@@ -1,0 +1,13 @@
+/*.iml
+/service/client/*.iml
+/service/server/*.iml
+/service/*.iml
+/.idea/compiler.xml
+/.idea/copyright/profiles_settings.xml
+/.idea/encodings.xml
+/.idea/libraries/Maven__junit_junit_3_8_1.xml
+/.idea/markdown-navigator/profiles_settings.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
