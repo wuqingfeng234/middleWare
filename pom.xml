@@ -17,6 +17,7 @@
     <modules>
         <module>rmi</module>
         <module>rpc</module>
+        <module>springrpc</module>
     </modules>
 
     <dependencyManagement>

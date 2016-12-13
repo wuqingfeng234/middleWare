@@ -102,6 +102,7 @@ public class RpcFramework {
         if (port <= 0 || port > 65535)
             throw new IllegalArgumentException("Invalid port " + port);
         System.out.println("Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
+
         return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[]{interfaceClass},
                 new InvocationHandler() {//用动态代理的方法进行包装，看起来是在调用一个方法，其实在内部通过socket通信传到服务器，并接收运行结果
                     public Object invoke(Object proxy, Method method, Object[] arguments) throws Throwable {
