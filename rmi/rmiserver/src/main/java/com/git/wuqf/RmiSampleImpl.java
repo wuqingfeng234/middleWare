@@ -14,4 +14,9 @@ public class RmiSampleImpl extends UnicastRemoteObject implements  RmiSample {
     public int sum(int a, int b) throws RemoteException {
         return a+b;
     }
+
+    public Person grow(Person person) throws RemoteException{
+        person.setAge(person.getAge()+1);
+        return person;
+    }
 }

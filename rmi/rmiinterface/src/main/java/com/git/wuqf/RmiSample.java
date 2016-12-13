@@ -8,4 +8,5 @@ import java.rmi.RemoteException;
  */
 public interface RmiSample extends Remote {
     public int sum(int a,int b) throws RemoteException;
+    public Person grow(Person person) throws RemoteException;
 }

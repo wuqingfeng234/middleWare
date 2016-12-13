@@ -23,5 +23,9 @@ public class RmiSampleClient
 
         int result=client.sum(1,3);
         System.out.print(result);
+
+        Person person=new Person("wuqf",1);
+        person=client.grow(person);
+        System.out.println(person);
     }
 }
