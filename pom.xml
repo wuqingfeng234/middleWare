@@ -15,8 +15,8 @@
   </properties>
 
   <modules>
-    <module>service</module>
       <module>rmi</module>
+      <module>rpc</module>
   </modules>
   <dependencies>
     <dependency>
