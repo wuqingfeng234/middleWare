@@ -1,4 +1,4 @@
-package com.git.wuqf;
+package com.git.wuqf.registry;
 
 import com.git.wuqf.constant.ZKConstant;
 import org.apache.zookeeper.*;

@@ -1,5 +1,7 @@
-package com.git.wuqf;
+package com.git.wuqf.handler;
 
+import com.git.wuqf.RpcRequest;
+import com.git.wuqf.RpcResponse;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

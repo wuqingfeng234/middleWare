@@ -1,4 +1,4 @@
-package com.git.wuqf;
+package com.git.wuqf.coder;
 
 import com.git.wuqf.utils.SerializationUtil;
 import io.netty.buffer.ByteBuf;

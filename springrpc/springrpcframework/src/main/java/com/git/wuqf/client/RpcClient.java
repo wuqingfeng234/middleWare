@@ -1,7 +1,7 @@
 package com.git.wuqf.client;
 
-import com.git.wuqf.RpcDecoder;
-import com.git.wuqf.RpcEncoder;
+import com.git.wuqf.coder.RpcDecoder;
+import com.git.wuqf.coder.RpcEncoder;
 import com.git.wuqf.RpcRequest;
 import com.git.wuqf.RpcResponse;
 import io.netty.bootstrap.Bootstrap;
