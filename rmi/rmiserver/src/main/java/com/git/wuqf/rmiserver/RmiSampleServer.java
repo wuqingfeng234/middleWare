@@ -1,4 +1,6 @@
-package com.git.wuqf;
+package com.git.wuqf.rmiserver;
+
+import com.git.wuqf.Url;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

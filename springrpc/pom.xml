@@ -20,6 +20,7 @@
         <module>springrpcclient</module>
         <module>springrpcinterface</module>
         <module>springrpcserver</module>
+        <module>springrpcframework</module>
     </modules>
 
     <dependencies>

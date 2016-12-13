@@ -42,7 +42,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.git.wuqf.RmiSampleClient</mainClass>
+                            <mainClass>com.git.wuqf.rmiclient.RmiSampleClient</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

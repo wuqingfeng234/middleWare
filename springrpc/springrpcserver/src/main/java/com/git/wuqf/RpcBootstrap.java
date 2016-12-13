@@ -1,0 +1,12 @@
+package com.git.wuqf;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Created by sdzn-dsj on 2016/12/13.
+ */
+public class RpcBootstrap {
+    public static void main(String[] args){
+        new ClassPathXmlApplicationContext("spring.xml");
+    }
+}

@@ -1,4 +1,7 @@
-package com.git.wuqf;
+package com.git.wuqf.rpcserver;
+
+import com.git.wuqf.HelloService;
+import com.git.wuqf.Person;
 
 import java.rmi.RemoteException;
 

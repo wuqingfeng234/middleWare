@@ -1,4 +1,4 @@
-package com.git.wuqf;
+package com.git.wuqf.rpcrpcframework;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

@@ -1,4 +1,7 @@
-package com.git.wuqf;
+package com.git.wuqf.rmiserver;
+
+import com.git.wuqf.Person;
+import com.git.wuqf.RmiSample;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -6,7 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 /**
  * Created by sdzn-dsj on 2016/12/13.
  */
-public class RmiSampleImpl extends UnicastRemoteObject implements  RmiSample {
+public class RmiSampleImpl extends UnicastRemoteObject implements RmiSample {
 
     public RmiSampleImpl() throws RemoteException {
         super();

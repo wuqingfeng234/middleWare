@@ -1,4 +1,8 @@
-package com.git.wuqf;
+package com.git.wuqf.rmiclient;
+
+import com.git.wuqf.Person;
+import com.git.wuqf.RmiSample;
+import com.git.wuqf.Url;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
