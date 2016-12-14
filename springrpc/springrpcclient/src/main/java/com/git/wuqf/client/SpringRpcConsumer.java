@@ -1,6 +1,7 @@
 package com.git.wuqf.client;
 
 import com.git.wuqf.HelloService;
+import com.git.wuqf.Person;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -14,5 +15,9 @@ public class SpringRpcConsumer {
         HelloService helloService = rpcProxy.create(HelloService.class);
         String result = helloService.hello("World");
         System.out.println(result);
+
+        Person person=new Person("wuqf",1);
+        person=helloService.grow(person);
+        System.out.println(person);
     }
 }

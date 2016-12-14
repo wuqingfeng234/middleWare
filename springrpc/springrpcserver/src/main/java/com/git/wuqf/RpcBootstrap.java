@@ -10,6 +10,5 @@ public class RpcBootstrap {
     public static void main(String[] args){
         ClassPathXmlApplicationContext context =  new ClassPathXmlApplicationContext("spring-server.xml");
         RpcServer server= (RpcServer) context.getBean("rpcServer");
-
     }
 }
