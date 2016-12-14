@@ -1,11 +1,13 @@
 package com.git.wuqf.registry;
 
 import com.git.wuqf.constant.ZKConstant;
-import org.apache.zookeeper.*;
+import com.github.zkclient.IZkClient;
+import com.github.zkclient.ZkClient;
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -25,38 +27,33 @@ public class ServiceRegistry {
 
     public void register(String data) {
         if (data != null) {
-            ZooKeeper zk = connectServer();
+            IZkClient zk = connectServer();
             if (zk != null) {
                 createNode(zk, data);
             }
         }
     }
 
-    private ZooKeeper connectServer() {
-        ZooKeeper zk = null;
-        try {
-            zk = new ZooKeeper(registryAddress, ZKConstant.ZK_SESSION_TIMEOUT, new Watcher() {
-                @Override
-                public void process(WatchedEvent event) {
-                    if (event.getState() == Event.KeeperState.SyncConnected) {
-                        latch.countDown();
-                    }
+    private IZkClient connectServer() {
+
+        IZkClient zkClient = new ZkClient(registryAddress);
+        zkClient.connect(10000, new Watcher() {
+            @Override
+            public void process(WatchedEvent watchedEvent) {
+                if (watchedEvent.getState() == Event.KeeperState.SyncConnected) {
+                    latch.countDown();
                 }
-            });
-            latch.await();
-        } catch (IOException | InterruptedException e) {
-            LOGGER.error("", e);
-        }
-        return zk;
+            }
+        });
+        return zkClient;
     }
 
-    private void createNode(ZooKeeper zk, String data) {
-        try {
-            byte[] bytes = data.getBytes();
-            String path = zk.create(ZKConstant.ZK_DATA_PATH, bytes, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
-            LOGGER.debug("create zookeeper node ({} => {})", path, data);
-        } catch (KeeperException | InterruptedException e) {
-            LOGGER.error("", e);
-        }
+    private void createNode(IZkClient zk, String data) {
+
+        byte[] bytes = data.getBytes();
+        zk.createPersistent(ZKConstant.ZK_DATA_PATH,true);
+        zk.writeData(ZKConstant.ZK_DATA_PATH, bytes);
+        LOGGER.debug("create zookeeper node ({} => {})", ZKConstant.ZK_DATA_PATH, data);
+
     }
 }

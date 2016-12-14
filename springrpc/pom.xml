@@ -28,7 +28,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
             <scope>test</scope>
         </dependency>
 
@@ -71,7 +70,10 @@
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.github.adyliu</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
         <!-- Apache Commons Collections -->
         <dependency>
             <groupId>org.apache.commons</groupId>
