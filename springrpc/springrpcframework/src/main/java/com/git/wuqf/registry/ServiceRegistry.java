@@ -15,45 +15,20 @@ import java.util.concurrent.CountDownLatch;
  */
 public class ServiceRegistry {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceRegistry.class);
+    private static final Logger logger = LoggerFactory.getLogger(ServiceRegistry.class);
 
     private CountDownLatch latch = new CountDownLatch(1);
 
     private String registryAddress;
 
+    private ZookeeperUtil zookeeperUtil;
+
     public ServiceRegistry(String registryAddress) {
         this.registryAddress = registryAddress;
+        zookeeperUtil=new ZookeeperUtil(registryAddress);
     }
 
     public void register(String data) {
-        if (data != null) {
-            IZkClient zk = connectServer();
-            if (zk != null) {
-                createNode(zk, data);
-            }
-        }
-    }
-
-    private IZkClient connectServer() {
-
-        IZkClient zkClient = new ZkClient(registryAddress);
-        zkClient.connect(10000, new Watcher() {
-            @Override
-            public void process(WatchedEvent watchedEvent) {
-                if (watchedEvent.getState() == Event.KeeperState.SyncConnected) {
-                    latch.countDown();
-                }
-            }
-        });
-        return zkClient;
-    }
-
-    private void createNode(IZkClient zk, String data) {
-
-        byte[] bytes = data.getBytes();
-        zk.createPersistent(ZKConstant.ZK_DATA_PATH,true);
-        zk.writeData(ZKConstant.ZK_DATA_PATH, bytes);
-        LOGGER.debug("create zookeeper node ({} => {})", ZKConstant.ZK_DATA_PATH, data);
-
+        zookeeperUtil.createNode(ZKConstant.ZK_DATA_PATH,data);
     }
 }
