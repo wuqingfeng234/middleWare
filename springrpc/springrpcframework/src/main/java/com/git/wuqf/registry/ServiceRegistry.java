@@ -16,11 +16,7 @@ import java.util.concurrent.CountDownLatch;
 public class ServiceRegistry {
 
     private static final Logger logger = LoggerFactory.getLogger(ServiceRegistry.class);
-
-    private CountDownLatch latch = new CountDownLatch(1);
-
     private String registryAddress;
-
     private ZookeeperUtil zookeeperUtil;
 
     public ServiceRegistry(String registryAddress) {
