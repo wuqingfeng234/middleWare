@@ -58,13 +58,5 @@ public class RpcProxy {
                 }
         );
     }
-
-    public String getServerAddress() {
-        return serverAddress;
-    }
-
-    public void setServerAddress(String serverAddress) {
-        this.serverAddress = serverAddress;
-    }
 }
 

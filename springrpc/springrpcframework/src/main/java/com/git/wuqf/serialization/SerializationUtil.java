@@ -1,4 +1,4 @@
-package com.git.wuqf.utils;
+package com.git.wuqf.serialization;
 
 import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;

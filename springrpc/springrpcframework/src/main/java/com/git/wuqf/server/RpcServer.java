@@ -2,8 +2,8 @@ package com.git.wuqf.server;
 
 import com.git.wuqf.*;
 import com.git.wuqf.annotation.RpcService;
-import com.git.wuqf.coder.RpcDecoder;
-import com.git.wuqf.coder.RpcEncoder;
+import com.git.wuqf.serialization.RpcDecoder;
+import com.git.wuqf.serialization.RpcEncoder;
 import com.git.wuqf.handler.RpcHandler;
 import com.git.wuqf.registry.ServiceRegistry;
 import io.netty.bootstrap.ServerBootstrap;

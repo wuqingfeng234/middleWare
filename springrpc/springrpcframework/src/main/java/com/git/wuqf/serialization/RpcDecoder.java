@@ -1,6 +1,5 @@
-package com.git.wuqf.coder;
+package com.git.wuqf.serialization;
 
-import com.git.wuqf.utils.SerializationUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
