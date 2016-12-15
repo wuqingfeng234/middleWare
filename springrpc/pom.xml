@@ -17,10 +17,10 @@
     </properties>
 
     <modules>
-        <module>springrpcclient</module>
         <module>springrpcinterface</module>
-        <module>springrpcserver</module>
         <module>springrpcframework</module>
+        <module>springrpcproducer</module>
+        <module>springrpcconsumer</module>
     </modules>
 
     <dependencies>
