@@ -18,8 +18,8 @@
 
     <modules>
         <module>rmi</module>
-        <module>rpc</module>
-        <module>springrpc</module>
+        <module>java-rpc</module>
+        <module>spring-rpc</module>
     </modules>
 
     <dependencyManagement>

@@ -2,6 +2,7 @@ package com.git.wuqf.consumer;
 
 import com.git.wuqf.HelloService;
 import com.git.wuqf.Person;
+
 import com.git.wuqf.client.RpcProxy;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
