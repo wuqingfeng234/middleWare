@@ -1,25 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>middleware</artifactId>
+        <artifactId>springrpc</artifactId>
         <groupId>com.git.wuqf</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-rpc</artifactId>
-    <packaging>pom</packaging>
 
-    <name>spring-rpc</name>
+    <artifactId>netty-rpc-framework</artifactId>
+    <packaging>jar</packaging>
+
+    <name>spring-rpc-framework</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <modules>
-        <module>spring-rpc-framework</module>
-        <module>spring-rpc-demo</module>
-    </modules>
 
     <dependencies>
         <!-- JUnit -->
@@ -34,17 +30,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.7</version>
-        </dependency>
-
-        <!-- Spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <!-- Netty -->
@@ -72,6 +57,7 @@
             <groupId>com.github.adyliu</groupId>
             <artifactId>zkclient</artifactId>
         </dependency>
+
         <!-- Apache Commons Collections -->
         <dependency>
             <groupId>org.apache.commons</groupId>
