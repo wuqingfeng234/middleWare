@@ -3,19 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>java-rpc</artifactId>
+        <artifactId>netty-transport</artifactId>
         <groupId>com.git.wuqf</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>java-rpc-demo</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>java-rpc-consumer</module>
-        <module>java-rpc-interface</module>
-        <module>java-rpc-producer</module>
-    </modules>
+    <artifactId>netty-transport-api</artifactId>
 
 </project>

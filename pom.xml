@@ -14,12 +14,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.3.4.RELEASE</spring.version>
         <logback.version>1.1.7</logback.version>
+        <lombok.version>1.12.6</lombok.version>
     </properties>
 
     <modules>
         <module>rmi</module>
         <module>java-rpc</module>
         <module>netty-rpc</module>
+        <module>netty-transport</module>
     </modules>
 
     <dependencyManagement>
@@ -40,6 +42,16 @@
             </dependency>
 
             <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
@@ -96,14 +108,17 @@
                 <artifactId>objenesis</artifactId>
                 <version>2.1</version>
             </dependency>
-
             <!-- CGLib -->
             <dependency>
                 <groupId>cglib</groupId>
                 <artifactId>cglib</artifactId>
                 <version>3.1</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -115,6 +130,7 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+                <version>3.1</version>
             </plugin>
         </plugins>
     </build>
