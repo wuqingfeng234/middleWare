@@ -10,7 +10,7 @@
     <artifactId>java-rpc</artifactId>
     <packaging>pom</packaging>
 
-    <name>rpc</name>
+    <name>java-rpc</name>
     <url>http://maven.apache.org</url>
 
     <properties>

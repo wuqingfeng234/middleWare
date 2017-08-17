@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rmiclient</artifactId>
+    <artifactId>java-rmi-server</artifactId>
     <packaging>jar</packaging>
 
-    <name>rmiclient</name>
+    <name>java-rmi-server</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -42,7 +42,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.git.wuqf.rmiclient.RmiSampleClient</mainClass>
+                            <mainClass>com.git.wuqf.rmiserver.RmiSampleServer</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

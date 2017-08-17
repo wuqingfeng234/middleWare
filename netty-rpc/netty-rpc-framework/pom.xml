@@ -10,7 +10,7 @@
     <artifactId>netty-rpc-framework</artifactId>
     <packaging>jar</packaging>
 
-    <name>spring-rpc-framework</name>
+    <name>netty-rpc-framework</name>
     <url>http://maven.apache.org</url>
 
     <properties>

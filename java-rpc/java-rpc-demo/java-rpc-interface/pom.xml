@@ -10,7 +10,7 @@
     <artifactId>java-rpc-interface</artifactId>
     <packaging>jar</packaging>
 
-    <name>rpcinterface</name>
+    <name>java-rpc-interface</name>
     <url>http://maven.apache.org</url>
 
     <properties>

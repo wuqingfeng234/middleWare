@@ -10,7 +10,7 @@
     <artifactId>java-rpc-consumer</artifactId>
     <packaging>jar</packaging>
 
-    <name>rpcclient</name>
+    <name>java-rpc-consumer</name>
     <url>http://maven.apache.org</url>
 
     <properties>

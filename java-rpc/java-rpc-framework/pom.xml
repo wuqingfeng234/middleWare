@@ -10,7 +10,7 @@
     <artifactId>java-rpc-framework</artifactId>
     <packaging>jar</packaging>
 
-    <name>rpcframework</name>
+    <name>java-rpc-framework</name>
     <url>http://maven.apache.org</url>
 
     <properties>

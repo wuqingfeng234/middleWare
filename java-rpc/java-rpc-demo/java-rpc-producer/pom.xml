@@ -10,7 +10,7 @@
     <artifactId>java-rpc-producer</artifactId>
     <packaging>jar</packaging>
 
-    <name>rpcserver</name>
+    <name>java-rpc-producer</name>
     <url>http://maven.apache.org</url>
 
     <properties>

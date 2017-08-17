@@ -7,15 +7,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rmi</artifactId>
+    <artifactId>java-rmi</artifactId>
     <packaging>pom</packaging>
 
-    <name>rmi</name>
+    <name>java-rmi</name>
     <url>http://maven.apache.org</url>
     <modules>
-        <module>rmiserver</module>
-        <module>rmiclient</module>
-        <module>rmiinterface</module>
+        <module>java-rmi-server</module>
+        <module>java-rmi-client</module>
+        <module>java-rmi-interface</module>
     </modules>
 
     <properties>

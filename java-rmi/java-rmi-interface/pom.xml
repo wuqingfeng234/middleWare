@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rmiinterface</artifactId>
+    <artifactId>java-rmi-interface</artifactId>
     <packaging>jar</packaging>
 
-    <name>rmiinterface</name>
+    <name>java-rmi-interface</name>
     <url>http://maven.apache.org</url>
 
     <properties>

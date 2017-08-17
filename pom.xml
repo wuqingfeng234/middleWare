@@ -18,7 +18,7 @@
     </properties>
 
     <modules>
-        <module>rmi</module>
+        <module>java-rmi</module>
         <module>java-rpc</module>
         <module>netty-rpc</module>
         <module>netty-transport</module>
