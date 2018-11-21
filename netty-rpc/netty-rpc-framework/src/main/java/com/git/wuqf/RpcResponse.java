@@ -20,11 +20,6 @@ public class RpcResponse {
         return error;
     }
 
-
-    public void setError(Throwable error) {
-        this.error = error;
-    }
-
     public Object getResult() {
         return result;
     }
@@ -34,9 +29,13 @@ public class RpcResponse {
     }
 
     public boolean isError() {
-        if(error==null){
+        if (error == null) {
             return false;
         }
         return true;
+    }
+
+    public void setError(Throwable error) {
+        this.error = error;
     }
 }

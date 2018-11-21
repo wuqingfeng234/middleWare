@@ -24,28 +24,28 @@ public class RpcFramework {
      * @throws Exception
      */
     public static void export(final Object service, int port) throws Exception {
-        if(service==null){
+        if (service == null) {
             throw new IllegalArgumentException("service instance is null");
         }
-        if(port<=0||port>65535){
-            throw new IllegalArgumentException("invalid port "+port);
+        if (port <= 0 || port > 65535) {
+            throw new IllegalArgumentException("invalid port " + port);
         }
-        System.out.println("Export service "+service.getClass().getName()+" on port "+ port);
-        final ServerSocket server=new ServerSocket(port);
-        while (true){
-            final Socket socket=server.accept();
+        System.out.println("Export service " + service.getClass().getName() + " on port " + port);
+        final ServerSocket server = new ServerSocket(port);
+        while (true) {
+            final Socket socket = server.accept();
             new Thread(new Runnable() {
                 public void run() {
-                    ObjectOutputStream output=null;
-                    ObjectInputStream input=null;
+                    ObjectOutputStream output = null;
+                    ObjectInputStream input = null;
                     try {
-                        input=new ObjectInputStream(socket.getInputStream());
-                        String methodName=input.readUTF();
-                        Class<?>[] parameterTypes=(Class<?>[]) input.readObject();
-                        Object[] arguments=(Object[]) input.readObject();
-                        output=new ObjectOutputStream(socket.getOutputStream());
-                        Method method=service.getClass().getMethod(methodName,parameterTypes);
-                        Object result=method.invoke(service,arguments);
+                        input = new ObjectInputStream(socket.getInputStream());
+                        String methodName = input.readUTF();
+                        Class<?>[] parameterTypes = (Class<?>[]) input.readObject();
+                        Object[] arguments = (Object[]) input.readObject();
+                        output = new ObjectOutputStream(socket.getOutputStream());
+                        Method method = service.getClass().getMethod(methodName, parameterTypes);
+                        Object result = method.invoke(service, arguments);
                         output.writeObject(result);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -57,8 +57,7 @@ public class RpcFramework {
                         e.printStackTrace();
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
-                    }
-                    finally {
+                    } finally {
                         try {
                             output.close();
                         } catch (IOException e) {

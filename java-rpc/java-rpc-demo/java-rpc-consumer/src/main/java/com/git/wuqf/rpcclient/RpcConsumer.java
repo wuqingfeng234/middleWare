@@ -13,8 +13,8 @@ public class RpcConsumer {
         String hello = service.hello("World");
         System.out.println(hello);
 
-        Person person=new Person("wuqf",1);
-        person=service.grow(person);
+        Person person = new Person("wuqf", 1);
+        person = service.grow(person);
         System.out.println(person);
     }
 }

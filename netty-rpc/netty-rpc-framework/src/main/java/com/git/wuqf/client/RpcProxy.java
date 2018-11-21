@@ -2,7 +2,6 @@ package com.git.wuqf.client;
 
 import com.git.wuqf.RpcRequest;
 import com.git.wuqf.RpcResponse;
-import com.git.wuqf.client.RpcClient;
 import com.git.wuqf.registry.ServiceDiscovery;
 
 import java.lang.reflect.InvocationHandler;
@@ -18,7 +17,7 @@ public class RpcProxy {
     private String serverAddress;
     private ServiceDiscovery serviceDiscovery;
 
-    public RpcProxy(String serverAddress,ServiceDiscovery serviceDiscovery) {
+    public RpcProxy(String serverAddress, ServiceDiscovery serviceDiscovery) {
         this.serverAddress = serverAddress;
         this.serviceDiscovery = serviceDiscovery;
     }

@@ -19,8 +19,8 @@ public class ZookeeperUtil {
     private CountDownLatch latch = new CountDownLatch(1);
     private IZkClient client;
 
-    public  ZookeeperUtil(String registryAddress) {
-        if(client ==null) {
+    public ZookeeperUtil(String registryAddress) {
+        if (client == null) {
             client = new ZkClient(registryAddress);
             client.connect(10000, new Watcher() {
                 @Override
@@ -33,16 +33,16 @@ public class ZookeeperUtil {
         }
     }
 
-    public void createNode( String path,String data) {
+    public void createNode(String path, String data) {
 
         byte[] bytes = data.getBytes();
-        client.createPersistent(path,true);
+        client.createPersistent(path, true);
         client.writeData(path, bytes);
         logger.debug("create zookeeper node ({} => {})", path, data);
     }
 
-    public byte[] readNode(String path){
-        byte[] value= client.readData(path);
+    public byte[] readNode(String path) {
+        byte[] value = client.readData(path);
         return value;
     }
 }

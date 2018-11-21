@@ -1,11 +1,16 @@
 package com.git.wuqf.client;
 
-import com.git.wuqf.serialization.RpcDecoder;
-import com.git.wuqf.serialization.RpcEncoder;
 import com.git.wuqf.RpcRequest;
 import com.git.wuqf.RpcResponse;
+import com.git.wuqf.serialization.RpcDecoder;
+import com.git.wuqf.serialization.RpcEncoder;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;

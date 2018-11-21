@@ -14,12 +14,13 @@ public class RmiSampleImpl extends UnicastRemoteObject implements RmiSample {
     public RmiSampleImpl() throws RemoteException {
         super();
     }
+
     public int sum(int a, int b) throws RemoteException {
-        return a+b;
+        return a + b;
     }
 
-    public Person grow(Person person) throws RemoteException{
-        person.setAge(person.getAge()+1);
+    public Person grow(Person person) throws RemoteException {
+        person.setAge(person.getAge() + 1);
         return person;
     }
 }

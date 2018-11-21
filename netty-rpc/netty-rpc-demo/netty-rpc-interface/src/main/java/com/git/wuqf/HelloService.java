@@ -5,5 +5,6 @@ package com.git.wuqf;
  */
 public interface HelloService {
     String hello(String msg);
+
     Person grow(Person person);
 }
