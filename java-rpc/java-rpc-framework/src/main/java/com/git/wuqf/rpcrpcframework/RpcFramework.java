@@ -3,7 +3,6 @@ package com.git.wuqf.rpcrpcframework;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -88,10 +87,9 @@ public class RpcFramework {
      * @param host           服务器主机名
      * @param port           服务器端口
      * @return 远程服务
-     * @throws Exception
      */
     @SuppressWarnings("unchecked")
-    public static <T> T refer(final Class<T> interfaceClass, final String host, final int port) throws Exception {
+    public static <T> T refer(final Class<T> interfaceClass, final String host, final int port)  {
         if (interfaceClass == null)
             throw new IllegalArgumentException("Interface class == null");
         if (!interfaceClass.isInterface())
@@ -103,33 +101,7 @@ public class RpcFramework {
         System.out.println("Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
 
         return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[]{interfaceClass},
-                new InvocationHandler() {//用动态代理的方法进行包装，看起来是在调用一个方法，其实在内部通过socket通信传到服务器，并接收运行结果
-                    public Object invoke(Object proxy, Method method, Object[] arguments) throws Throwable {
-                        Socket socket = new Socket(host, port);
-                        try {
-                            ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
-                            try {
-                                output.writeUTF(method.getName());
-                                output.writeObject(method.getParameterTypes());
-                                output.writeObject(arguments);
-                                ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
-                                try {
-                                    Object result = input.readObject();
-                                    if (result instanceof Throwable) {
-                                        throw (Throwable) result;
-                                    }
-                                    return result;//返回结果
-                                } finally {
-                                    input.close();
-                                }
-                            } finally {
-                                output.close();
-                            }
-                        } finally {
-                            socket.close();
-                        }
-                    }
-                });
+                new DynamicProxy(host, port));//用动态代理的方法进行包装，看起来是在调用一个方法，其实在内部通过socket通信传到服务器，并接收运行结果
     }
 }
 
