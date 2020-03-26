@@ -3,7 +3,7 @@ package com.git.wuqf;
 import java.io.Serializable;
 
 /**
- * Created by sdzn-dsj on 2016/12/13.
+ * Created by wuqf on 2016/12/13.
  */
 public class Person implements Serializable {
     private String name;

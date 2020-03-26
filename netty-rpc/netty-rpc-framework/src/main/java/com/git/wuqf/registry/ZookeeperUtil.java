@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Created by sdzn-dsj on 2016/12/14.
+ * Created by wuqf on 2016/12/14.
  */
 public class ZookeeperUtil {
 

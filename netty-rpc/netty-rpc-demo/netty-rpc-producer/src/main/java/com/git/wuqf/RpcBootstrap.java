@@ -4,7 +4,7 @@ import com.git.wuqf.server.RpcServer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by sdzn-dsj on 2016/12/13.
+ * Created by wuqf on 2016/12/13.
  */
 public class RpcBootstrap {
     public static void main(String[] args) {

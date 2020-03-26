@@ -13,7 +13,7 @@ import org.springframework.cglib.reflect.FastMethod;
 import java.util.Map;
 
 /**
- * Created by sdzn-dsj on 2016/12/13.
+ * Created by wuqf on 2016/12/13.
  */
 public class RpcHandler extends SimpleChannelInboundHandler<RpcRequest> {
 

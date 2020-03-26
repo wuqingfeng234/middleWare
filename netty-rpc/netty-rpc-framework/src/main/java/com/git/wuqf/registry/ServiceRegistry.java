@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by sdzn-dsj on 2016/12/13.
+ * Created by wuqf on 2016/12/13.
  */
 public class ServiceRegistry {
 

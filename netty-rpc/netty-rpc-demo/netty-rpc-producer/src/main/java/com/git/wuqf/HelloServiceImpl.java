@@ -3,7 +3,7 @@ package com.git.wuqf;
 import com.git.wuqf.annotation.RpcService;
 
 /**
- * Created by sdzn-dsj on 2016/12/13.
+ * Created by wuqf on 2016/12/13.
  */
 @RpcService(HelloService.class)
 public class HelloServiceImpl implements HelloService {

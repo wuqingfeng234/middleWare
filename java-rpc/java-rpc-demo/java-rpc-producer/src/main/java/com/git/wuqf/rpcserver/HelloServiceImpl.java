@@ -4,7 +4,7 @@ import com.git.wuqf.HelloService;
 import com.git.wuqf.Person;
 
 /**
- * Created by sdzn-dsj on 2016/12/13.
+ * Created by wuqf on 2016/12/13.
  */
 public class HelloServiceImpl implements HelloService {
     public String hello(String msg) {
