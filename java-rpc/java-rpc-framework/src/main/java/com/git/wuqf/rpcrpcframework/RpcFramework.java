@@ -1,8 +1,6 @@
 package com.git.wuqf.rpcrpcframework;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -33,45 +31,43 @@ public class RpcFramework {
         final ServerSocket server = new ServerSocket(port);
         while (true) {
             final Socket socket = server.accept();
-            new Thread(new Runnable() {
-                public void run() {
-                    ObjectOutputStream output = null;
-                    ObjectInputStream input = null;
+
+            new Thread(() -> {
+                InputStream inputStream;
+                OutputStream outputStream;
+                try {
+                    inputStream = socket.getInputStream();
+                    outputStream = socket.getOutputStream();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                try (ObjectInputStream input = new ObjectInputStream(inputStream);
+                     ObjectOutputStream output = new ObjectOutputStream(outputStream)) {
+
+                    String methodName = input.readUTF();
+                    Class<?>[] parameterTypes = (Class<?>[]) input.readObject();
+                    Object[] arguments = (Object[]) input.readObject();
+                    Method method = service.getClass().getMethod(methodName, parameterTypes);
+                    Object result = method.invoke(service, arguments);
+
+                    output.writeObject(result);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } finally {
+
                     try {
-                        input = new ObjectInputStream(socket.getInputStream());
-                        String methodName = input.readUTF();
-                        Class<?>[] parameterTypes = (Class<?>[]) input.readObject();
-                        Object[] arguments = (Object[]) input.readObject();
-                        output = new ObjectOutputStream(socket.getOutputStream());
-                        Method method = service.getClass().getMethod(methodName, parameterTypes);
-                        Object result = method.invoke(service, arguments);
-                        output.writeObject(result);
+                        socket.close();
                     } catch (IOException e) {
                         e.printStackTrace();
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (NoSuchMethodException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } finally {
-                        try {
-                            output.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            input.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            socket.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
                     }
                 }
             }).start();
@@ -89,20 +85,19 @@ public class RpcFramework {
      * @return 远程服务
      */
     @SuppressWarnings("unchecked")
-    public static <T> T refer(final Class<T> interfaceClass, final String host, final int port)  {
+    public static <T> T refer(final Class<T> interfaceClass, final String host, final int port) {
         if (interfaceClass == null)
             throw new IllegalArgumentException("Interface class == null");
         if (!interfaceClass.isInterface())
             throw new IllegalArgumentException("The " + interfaceClass.getName() + " must be interface class!");
-        if (host == null || host.length() == 0)
+        if (host == null || host.isEmpty())
             throw new IllegalArgumentException("Host == null!");
         if (port <= 0 || port > 65535)
             throw new IllegalArgumentException("Invalid port " + port);
         System.out.println("Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
 
-        T t = (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[]{interfaceClass},
-                new DynamicProxy(host, port));//用动态代理的方法进行包装，看起来是在调用一个方法，其实在内部通过socket通信传到服务器，并接收运行结果
-        return t;
+        return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[]{interfaceClass},
+                new DynamicProxy(host, port));
     }
 }
 
